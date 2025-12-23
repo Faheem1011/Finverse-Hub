@@ -1,0 +1,130 @@
+.droppingTexts {
+    display: inline-block;
+    width: 280px;
+    /* Increased width to fit longer words */
+    text-align: left;
+    height: 1.2em;
+    vertical-align: bottom;
+    position: relative;
+    margin-left: 0.5rem;
+}
+
+.droppingTexts>div {
+    font-size: 0px;
+    opacity: 0;
+    margin-left: -30px;
+    position: absolute;
+    font-weight: 700;
+    white-space: nowrap;
+    color: #60A5FA;
+    /* Blue-400 to match theme */
+}
+
+/* Cycle through 4 items */
+.droppingTexts>div:nth-child(1) {
+    animation: roll 5s linear infinite 0s;
+}
+
+.droppingTexts>div:nth-child(2) {
+    animation: roll 5s linear infinite 1.25s;
+    /* 5s / 4 items = 1.25s overlap? No, standard logic */
+}
+
+.droppingTexts>div:nth-child(3) {
+    animation: roll 5s linear infinite 2.5s;
+}
+
+.droppingTexts>div:nth-child(4) {
+    animation: roll2 5s linear infinite 3.75s;
+}
+
+@keyframes roll {
+    0% {
+        font-size: 0px;
+        opacity: 0;
+        margin-left: -30px;
+        margin-top: 0px;
+        transform: rotate(-25deg);
+    }
+
+    3% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+
+    5% {
+        font-size: inherit;
+        opacity: 1;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+
+    20% {
+        font-size: inherit;
+        opacity: 1;
+        margin-left: 0px;
+        margin-top: 0px;
+        transform: rotate(0deg);
+    }
+
+    27% {
+        font-size: 0px;
+        opacity: 0.5;
+        margin-left: 20px;
+        margin-top: 100px;
+    }
+
+    100% {
+        font-size: 0px;
+        opacity: 0;
+        margin-left: -30px;
+        margin-top: 0px;
+        transform: rotate(15deg);
+    }
+}
+
+@keyframes roll2 {
+    0% {
+        font-size: 0px;
+        opacity: 0;
+        margin-left: -30px;
+        margin-top: 0px;
+        transform: rotate(-25deg);
+    }
+
+    3% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+
+    5% {
+        font-size: inherit;
+        opacity: 1;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+
+    20% {
+        font-size: inherit;
+        opacity: 1;
+        margin-left: 0px;
+        margin-top: 0px;
+        transform: rotate(0deg);
+    }
+
+    27% {
+        font-size: 15px;
+        /* Prevent massive explosion, keep it subtle or just fade out */
+        opacity: 0.5;
+        margin-left: 20px;
+        margin-top: 100px;
+    }
+
+    100% {
+        font-size: 0px;
+        opacity: 0;
+        margin-left: -30px;
+        margin-top: 0px;
+        transform: rotate(15deg);
+    }
+}

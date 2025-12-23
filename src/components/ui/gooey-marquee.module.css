@@ -1,0 +1,74 @@
+.marquee {
+    position: relative;
+    width: 100vw;
+    height: 35vh;
+    /* Massive height for massive text */
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    user-select: none;
+    pointer-events: none;
+}
+
+.marquee_text {
+    position: absolute;
+    min-width: 100%;
+    white-space: nowrap;
+    animation: marquee 20s infinite linear;
+    color: white;
+    font-size: 20vw;
+    /* HUGE text relative to viewport width */
+    font-weight: 900;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    /* Clear, bold font */
+    letter-spacing: -0.05em;
+    padding: 0 4rem;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.marquee_blur {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background-color: black;
+
+    background-image:
+        linear-gradient(to right, black 5%, transparent 25%, transparent 75%, black 95%);
+
+    filter: contrast(30);
+    /* Heavy contrast for sharp goo edges */
+    mix-blend-mode: screen;
+    /* Makes the black container transparent against the website */
+    z-index: 10;
+}
+
+.marquee_blur p {
+    filter: blur(0.4rem);
+    /* Blur the text to feed the goo */
+    color: white;
+}
+
+.marquee_clear {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    z-index: 20;
+    opacity: 0.8;
+    /* Slight opacity to blend with the goo */
+}
+
+/* Ensure clean text sits on top for readability as requested ("text to be more clear") */
+.marquee_clear .marquee_text {
+    filter: none;
+}

@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+:root {
+  /* Finverse (Westbourne-Inspired) Palette */
+  --background: #011627;
+  /* Deep Navy */
+  --foreground: #ffffff;
+
+  --primary: #00F2FF;
+  /* Electric Cyan */
+  --secondary: #0a2e52;
+  /* Lighter Navy for cards */
+  --accent: #ffffff;
+  /* White accents */
+
+  --card: #001B39;
+  --card-foreground: #ffffff;
+
+  --border: #00F2FF;
+  /* Cyan borders */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-border: var(--border);
+
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-libre), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
